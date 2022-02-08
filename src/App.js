@@ -4,6 +4,7 @@ import './App.css';
 import MoviesPage from "./Page/MoviesPAge/MoviesPage";
 import GenresPage from "./Page/GenresPage/GenresPage";
 import GenresMoviesPage from "./Page/GenresMoviesPage/GenresMoviesPage";
+import DetailsMoviesPage from "./Page/DetailsMoviesPage/DetailsMoviesPage";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <Routes>
                 <Route path={'/'} element={<Header/>}>
                     <Route path={'movies'} element={<MoviesPage/>}/>
+                    <Route path={'movies/:id'} element={<DetailsMoviesPage/>}/>
                     <Route path={'genres'} element={<GenresPage/>}/>
                     <Route path={'genres/movies'} element={<GenresMoviesPage/>}/>
                 </Route>

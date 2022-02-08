@@ -1,9 +1,8 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {logDOM} from "@testing-library/react";
+import {Link, NavLink} from "react-router-dom";
 
-const PopularMovies = (props) => {
-    const {movie: {original_title, release_date, poster_path}} = props
+const MoviePage = (props) => {
+    const {movie: {id,original_title, release_date, poster_path}} = props
     const urlImg = 'https://image.tmdb.org/t/p/w500'
     return (
         <div>
@@ -13,9 +12,10 @@ const PopularMovies = (props) => {
             <div className={'details'}>
                 <h3>{original_title}</h3>
                 <p>{release_date}</p>
+                <NavLink to={id.toString()}><button>Details</button></NavLink>
             </div>
         </div>
     );
 };
 
-export default PopularMovies;
+export default MoviePage;

@@ -8,13 +8,15 @@ import {axiosPopularMovies} from "../../service/axios.popularMovies/axios.popula
 import {getMoviesDetails} from "../../store/moviesDetails.splice/moviesDetails.splice";
 import './DetailsMoviesPage.css'
 import {logDOM} from "@testing-library/react";
+
 const DetailsMoviesPage = () => {
-  const {movie,status,error}=useSelector(state=>state['moviesDetailsReducer'])
+    const {movie, status, error} = useSelector(state => state['moviesDetailsReducer'])
     const dispatch = useDispatch()
     const {id} = useParams()
     useEffect(() => {
-         dispatch(getMoviesDetails(id))
+        dispatch(getMoviesDetails(id))
     }, [])
+    console.log(movie)
     return (
         <div>
             <div className={'genresMoviesPageDetails'}>

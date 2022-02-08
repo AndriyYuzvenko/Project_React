@@ -6,7 +6,6 @@ export const getMoviesDetails = createAsyncThunk(
     async (id, {rejectWithValue}) => {
         try {
             const movie = await axiosPopularMovies.getDetails(id)
-            console.log(movie)
             return movie
         } catch (e) {
             rejectWithValue(e.message)

@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {genresAdd} from "../../store/moviesDetails.splice/moviesDetails.splice";
 
 const MoviePage = (props) => {
     const {movie: {id,original_title, release_date, poster_path}} = props

@@ -1,14 +1,12 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {axiosGenres} from "../../service/axios.genres/axios.genres";
 import {axiosPopularMovies} from "../../service/axios.popularMovies/axios.popularMovies";
-import {logDOM} from "@testing-library/react";
 
 export const getMovies = createAsyncThunk(
     'popularMoviesSplice/getMovies',
-    async (_, {rejectWithValue}) => {
+    async (data, {rejectWithValue}) => {
         try {
-            const movies = await axiosPopularMovies.getALl()
-            return movies
+            const movies = await axiosPopularMovies.getAll(data)
+            return movies.results
         } catch (e) {
             rejectWithValue(e.message)
         }
@@ -19,14 +17,13 @@ const popularMoviesSplice = createSlice({
     name: 'popularMoviesSplice',
     initialState: {
         movies: [],
+        idGenres: 0,
         status: null,
         error: null
-    },reducers:{
-      moviesFilter:(state,action)=>{
-          console.log(action.payload.id)
-          console.log(state)
-          // state.movies = state.movies.results.filter(item =>)
-      }
+    }, reducers: {
+        moviesFilter: (state, action) => {
+            state.idGenres = action.payload.id
+        }
     },
     extraReducers: {
         [getMovies.pending]: (state, action) => {

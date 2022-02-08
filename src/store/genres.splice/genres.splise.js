@@ -1,6 +1,8 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import {axiosGenres} from "../../service/axios.genres/axios.genres";
 
+
+
 export const getGenres = createAsyncThunk(
     'genresSplice/getGenres',
     async (_, {rejectWithValue}) => {

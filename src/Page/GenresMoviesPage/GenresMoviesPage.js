@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {getMovies} from "../../store/popularMovies.splice/popularMovies.splice";
-import PopularMovies from "../../Components/PopularMovies/PopularMovies";
-import './GenresMoviesPage.css'
-import {moviesNext} from "../../store/popularMovies.splice/popularMovies.splice";
+import {useDispatch, useSelector} from 'react-redux';
 
+import {getMovies} from '../../store/popularMovies.splice/popularMovies.splice';
+import PopularMovies from '../../Components/PopularMovies/PopularMovies';
+import './GenresMoviesPage.css'
 
 const GenresMoviesPage = () => {
     const {movies, status, error, idGenres} = useSelector(state => state['popularMoviesReducer'])
@@ -44,7 +43,6 @@ const GenresMoviesPage = () => {
                         key={movie.id} movie={movie}/>)}
                 </div>
             </div>
-
         </div>
     );
 };

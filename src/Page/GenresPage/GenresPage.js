@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {axiosGenres} from "../../service/axios.genres/axios.genres";
-import Genres from "../../Components/Genres/Genres";
-import {useDispatch, useSelector} from "react-redux";
-import {getGenres} from "../../store/genres.splice/genres.splise";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+
+import Genres from '../../Components/Genres/Genres';
+import {getGenres} from '../../store/genres.splice/genres.splise';
 
 const GenresPage = () => {
     const {genres, status, error} = useSelector(state => state['genresReducer'])

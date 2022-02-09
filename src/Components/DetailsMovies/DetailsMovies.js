@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+
+import Actors from '../Actors/Actors';
+import DetailsMoviesGenres from '../DetailsMoviesGenres/DetailsMoviesGenres';
+import DetailsMoviesProductionCompanies from '../DetailsMoviesProductionCompanies/DetailsMoviesProductionCompanies';
+import DetailsMoviesProductionCountries from '../DetailsMoviesProductionCountries/DetailsMoviesProductionCountries';
+import {apiImg} from '../../urls/urls';
+import {getActors} from '../../store/actors.splice/actors.splice';
 
 const DetailsMovies = (props) => {
-    const urlImg = 'https://image.tmdb.org/t/p/w500'
-
+    const {id} = useParams()
     const {
         movie: {
             original_title,
@@ -12,24 +20,68 @@ const DetailsMovies = (props) => {
             overview,
             runtime,
             vote_average,
-            genres
+            genres,
+            production_countries,
+            production_companies
         }
     } = props
-
-    console.log(genres)
+    const {actors} = useSelector(state => state['actorsReducer'])
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getActors(id))
+    }, [])
+    const genresAdd = () => {
+        if (genres !== undefined) {
+            const genre = genres.map(name => <DetailsMoviesGenres key={name.id} name={name}/>)
+            return genre
+        }
+    }
+    const productionCountries = () => {
+        if (production_countries !== undefined) {
+            const countries = production_countries.map(name => <DetailsMoviesProductionCountries key={name.id}
+                                                                                                 name={name}/>)
+            return countries
+        }
+    }
+    const productionCompanies = () => {
+        if (production_companies !== undefined) {
+            const companies = production_companies.map(name => <DetailsMoviesProductionCompanies key={name.id}
+                                                                                                 name={name}/>)
+            return companies
+        }
+    }
+    const actorsMovies = () => {
+        if (actors !== undefined) {
+            const actor = actors.map(actor => <Actors key={actor.id} actor={actor}/>)
+            return actor
+        }
+    }
     return (
         <div>
             <div className={'photoDetails'}>
                 <div className={'img'}>
                     <p className={'vote_average'}>{vote_average}</p>
-                    <img src={urlImg + poster_path} alt={original_title} className={'main'}/>
-                    <img src={urlImg + backdrop_path} alt={original_title} className={'child'}/>
+                    <img src={apiImg + poster_path} alt={original_title} className={'main'}/>
+                    <img src={apiImg + backdrop_path} alt={original_title} className={'child'}/>
                 </div>
                 <div className={'detailsMovies'}>
                     <h1>{original_title}</h1>
                     <p className={'overview'}>{overview}</p>
+                    <div className={'genresName'}>{genresAdd()}</div>
+                    <p><b>Title: </b>{original_title}</p>
                     <p><b>Release_date: </b>{release_date}</p>
+                    <div className={'genresTwo'}><p><b>Genres:</b></p>{genresAdd()}</div>
+                    <div className={'genresTwo'}><p><b>Production_countries:</b></p>
+                        <div className={'countries'}>{productionCountries()}</div>
+                    </div>
                     <p><b>Runtime: </b>{runtime} min.</p>
+                    <div>
+                        <p><b>Production_companies: </b></p>
+                        <div className={'companiesName'}>{productionCompanies()}</div>
+                    </div>
+                    <div><p><b>Actors:</b></p>
+                        <div className={'actors'}>{actorsMovies()}</div>
+                    </div>
                 </div>
             </div>
         </div>

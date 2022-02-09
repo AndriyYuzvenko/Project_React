@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {getMovies} from "../../store/popularMovies.splice/popularMovies.splice";
-import PopularMovies from "../../Components/PopularMovies/PopularMovies";
-import MoviePage from "../../Components/MoviePage/MoviePage";
+import {useDispatch, useSelector} from 'react-redux';
+
+import {getMovies} from '../../store/popularMovies.splice/popularMovies.splice';
+import MoviePage from '../../Components/MoviePage/MoviePage';
+
 const MoviesPage = () => {
     const {movies, status, error} = useSelector(state => state['popularMoviesReducer'])
     const dispatch = useDispatch()
@@ -36,7 +37,6 @@ const MoviesPage = () => {
                 <div className={'content'}>
                     {status === 'pending' && <h1>Loading...</h1>}
                     {error && <h1>{error}</h1>}
-
                     {movies.map(movie => <MoviePage key={movie.id} movie={movie}/>)}
                 </div>
             </div>

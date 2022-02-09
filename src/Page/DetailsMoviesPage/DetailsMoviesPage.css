@@ -3,13 +3,16 @@
     padding: 20px 50px;
     box-sizing: border-box;
 }
-.main{
+
+.main {
     width: 350px;
 }
-.child{
+
+.child {
     width: 350px;
     text-align: left;
 }
+
 .photoDetails {
     display: flex;
     width: 100%;
@@ -18,33 +21,73 @@
     border-radius: 10px;
     background-color: black;
 }
-.img{
+
+.img {
     width: 350px;
 }
-.detailsMovies{
+
+.detailsMovies {
     color: white;
     padding: 0 20px;
 }
-.detailsMovies >h1{
+
+.detailsMovies > h1 {
     padding: 10px 0;
     text-align: center;
 }
-.detailsMovies{
+
+.detailsMovies {
     text-align: left;
 }
-.detailsMovies p{
+
+.detailsMovies p {
     padding-bottom: 10px;
 }
-.overview{
+
+.overview, .genresName {
     color: #c4c3c3;
 }
-.vote_average{
+
+.vote_average {
     position: absolute;
-    background-color:black;
+    background-color: black;
     border-radius: 50%;
     padding: 10px;
     margin-top: 475px;
     margin-left: 300px;
     color: white;
     font-size: 18px;
+}
+
+.genresName {
+    margin: 30px 0;
+}
+
+.genresTwo, .genresName {
+    display: flex;
+}
+
+.genresName div {
+    padding-right: 5px;
+}
+
+.companiesName {
+    display: flex;
+    padding: 5px;
+    column-gap: 20px;
+}
+
+.companiesName img {
+    margin: 20px 20px;
+    width: 70%;
+}
+
+.companiesName > div > div {
+    background-color: #525151;
+
+}
+
+.actors, .countries {
+    display: flex;
+    flex-wrap: wrap;
 }

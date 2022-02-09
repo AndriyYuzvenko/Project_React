@@ -1,9 +1,9 @@
 import React from 'react';
 
-const DetailsMoviesGenres = ({name}) => {
+const DetailsMoviesGenres = ({name: {name}}) => {
     return (
         <div>
-            <p>{name}</p>
+            <p>{name},</p>
         </div>
     );
 };

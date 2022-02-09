@@ -1,6 +1,4 @@
 import React from 'react';
-import {useSelector} from "react-redux";
-import {logDOM} from "@testing-library/react";
 
 const PopularMovies = (props) => {
     const {movie: {original_title, release_date, poster_path}} = props

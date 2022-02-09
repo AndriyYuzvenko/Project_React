@@ -1,10 +1,11 @@
-import {MemoryRouter, Route, Routes} from 'react-router-dom';
-import Header from "./Components/Header/Header";
+import {Route, Routes} from 'react-router-dom';
+import Header from './Components/Header/Header';
+
+import MoviesPage from './Page/MoviesPAge/MoviesPage';
+import GenresPage from './Page/GenresPage/GenresPage';
+import GenresMoviesPage from './Page/GenresMoviesPage/GenresMoviesPage';
+import DetailsMoviesPage from './Page/DetailsMoviesPage/DetailsMoviesPage';
 import './App.css';
-import MoviesPage from "./Page/MoviesPAge/MoviesPage";
-import GenresPage from "./Page/GenresPage/GenresPage";
-import GenresMoviesPage from "./Page/GenresMoviesPage/GenresMoviesPage";
-import DetailsMoviesPage from "./Page/DetailsMoviesPage/DetailsMoviesPage";
 
 function App() {
     return (

@@ -1,5 +1,6 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {axiosPopularMovies} from "../../service/axios.popularMovies/axios.popularMovies";
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+
+import {axiosPopularMovies} from '../../service/axios.popularMovies/axios.popularMovies';
 
 export const getMovies = createAsyncThunk(
     'popularMoviesSplice/getMovies',

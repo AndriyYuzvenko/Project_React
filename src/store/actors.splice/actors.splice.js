@@ -7,7 +7,6 @@ export const getActors = createAsyncThunk(
     async (id, {rejectWithValue}) => {
         try {
             const actors = await actorsService.getAll(id)
-            console.log(actors.cast)
             return actors.cast
         } catch (e) {
             rejectWithValue(e.message)

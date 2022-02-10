@@ -13,7 +13,7 @@ const MoviePage = (props) => {
             <div className={'details'}>
                 <h3>{original_title}</h3>
                 <p>{release_date}</p>
-                <NavLink to={id.toString()}>
+                <NavLink to={`${id.toString()}/${original_title}`}>
                     <button>Details</button>
                 </NavLink>
             </div>
